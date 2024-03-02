@@ -13,10 +13,8 @@ import {
   ScreenNames,
   allScreenNames,
   defaultIconProps,
-  nav,
   padding
 } from "@/utils/_variables";
-import { ArrowLeft2 } from "iconsax-react-native";
 import TextComponent from "../_general/TextComponent";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { ScreenNamesType } from "@/utils/types";
@@ -28,17 +26,8 @@ import {
   whiteColor
 } from "@/assets/colors";
 import { Poppins } from "@/assets/fonts";
-import { Menu } from "react-native-paper";
-import {
-  Bolt,
-  LucideIcon,
-  MessageCircle,
-  MoreVertical,
-  X
-} from "lucide-react-native";
-import { useColorScheme } from "react-native";
+import { Bolt } from "lucide-react-native";
 import { colorSchemes } from "@/utils/_variables";
-import HeaderDropdownButton from "../_general/HeaderDropdownButton";
 import { useActionContext } from "@/context";
 
 const defaultBorderRadius = 30;
@@ -48,11 +37,6 @@ const Header: React.FC<{ headerText: string; hideBackArrow?: boolean }> = ({
   headerText,
   hideBackArrow
 }) => {
-  const [visible, setVisible] = useState(false);
-
-  const openMenu = () => setVisible(true);
-
-  const closeMenu = () => setVisible(false);
   const { colorScheme } = useActionContext();
   const { navigate } = useNavigation();
   return (
@@ -76,55 +60,21 @@ const Header: React.FC<{ headerText: string; hideBackArrow?: boolean }> = ({
         {headerText || "Screen"}
       </TextComponent>
       <View>
-        <Menu
-          contentStyle={{
-            top: defaultIconSize + 10,
-            backgroundColor: whiteColor.default,
-            borderRadius: 15
+        <TouchableOpacity
+          onPress={() => {
+            navigate(ScreenNames.Profile.name as never);
           }}
-          visible={visible}
-          onDismiss={closeMenu}
-          anchor={
-            <TouchableOpacity onPress={openMenu}>
-              {visible ? (
-                <X
-                  {...defaultIconProps}
-                  size={defaultIconSize}
-                  color={
-                    colorScheme === colorSchemes.dark
-                      ? whiteColor.opacity600
-                      : blackColor.opacity600
-                  }
-                />
-              ) : (
-                <MoreVertical
-                  {...defaultIconProps}
-                  size={defaultIconSize}
-                  color={
-                    colorScheme === colorSchemes.dark
-                      ? whiteColor.opacity600
-                      : blackColor.opacity600
-                  }
-                />
-              )}
-            </TouchableOpacity>
-          }
         >
-          <Menu.Item
-            onPress={() => {
-              closeMenu();
-              navigate(ScreenNames.Chats.name as never);
-            }}
-            title={<HeaderDropdownButton Icon={MessageCircle} label="Chats" />}
+          <Bolt
+            {...defaultIconProps}
+            size={25}
+            color={
+              colorScheme === colorSchemes.dark
+                ? whiteColor.default
+                : blackColor.default
+            }
           />
-          <Menu.Item
-            onPress={() => {
-              closeMenu();
-              navigate(ScreenNames.Profile.name as never);
-            }}
-            title={<HeaderDropdownButton Icon={Bolt} label="Settings" />}
-          />
-        </Menu>
+        </TouchableOpacity>
       </View>
     </View>
   );

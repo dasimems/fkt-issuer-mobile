@@ -49,7 +49,7 @@ const Login = () => {
           Welcome
         </TextComponent>
 
-        <TouchableOpacity
+        {/* <TouchableOpacity
           onPress={() => {
             navigate(ScreenNames.Register.name as never);
           }}
@@ -61,7 +61,7 @@ const Login = () => {
           }}
         >
           <TextComponent color={whiteColor.default}>Register</TextComponent>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
       <View
         style={{

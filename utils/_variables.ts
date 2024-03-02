@@ -7,6 +7,7 @@ import {
   Home,
   Key,
   Landmark,
+  MessageCircle,
   User,
   Users,
   Wallet
@@ -95,12 +96,20 @@ export const padding = 20,
       activeNames: ["Wallet"],
       showIn: [nav]
     },
+
+    Chats: {
+      name: "Chats",
+      Icon: MessageCircle,
+      label: "Chats",
+      activeNames: ["Chats"],
+      showIn: [nav]
+    },
     Referrals: {
       name: "Referrals",
       Icon: Users,
       label: "Referrals",
       activeNames: ["Referrals"],
-      showIn: [nav, profile]
+      showIn: []
     },
 
     Profile: {
@@ -151,13 +160,6 @@ export const padding = 20,
       label: "Assist",
       activeNames: ["AssistReferral"],
       showIn: [referral]
-    },
-    Chats: {
-      name: "Chats",
-      Icon: undefined,
-      label: "Chats",
-      activeNames: ["Chats"],
-      showIn: []
     },
     ChatDetails: {
       name: "ChatDetails",

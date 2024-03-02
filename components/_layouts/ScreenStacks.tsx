@@ -61,7 +61,7 @@ const ScreenStacks: React.FC<ScreenStackType> = ({ fontLoaded }) => {
 
   return (
     <NavigationContainer theme={MyTheme}>
-      <Stack.Navigator initialRouteName={ScreenNames.GettingStarted.name}>
+      <Stack.Navigator initialRouteName={ScreenNames.Login.name}>
         {/*screens that shows when user isn't loggedin yet */}
         <Stack.Group
           screenOptions={{
@@ -70,12 +70,12 @@ const ScreenStacks: React.FC<ScreenStackType> = ({ fontLoaded }) => {
             gestureEnabled: true
           }}
         >
-          <Stack.Screen
+          {/* <Stack.Screen
             name={ScreenNames.GettingStarted.name}
             component={GettingStarted}
-          />
+          /> */}
           <Stack.Screen name={ScreenNames.Login.name} component={Login} />
-          <Stack.Screen name={ScreenNames.Register.name} component={Register} />
+          {/* <Stack.Screen name={ScreenNames.Register.name} component={Register} /> */}
         </Stack.Group>
         {/* Screens when users are loggedin */}
         <Stack.Group
@@ -92,10 +92,11 @@ const ScreenStacks: React.FC<ScreenStackType> = ({ fontLoaded }) => {
           <Stack.Screen name={ScreenNames.Projects.name} component={Projects} />
           <Stack.Screen name={ScreenNames.Assets.name} component={Assets} />
           <Stack.Screen name={ScreenNames.Wallet.name} component={Wallet} />
-          <Stack.Screen
+          <Stack.Screen name={ScreenNames.Chats.name} component={Chats} />
+          {/* <Stack.Screen
             name={ScreenNames.Referrals.name}
             component={Referrals}
-          />
+          /> */}
         </Stack.Group>
         <Stack.Group
           screenOptions={{
@@ -105,7 +106,6 @@ const ScreenStacks: React.FC<ScreenStackType> = ({ fontLoaded }) => {
           }}
         >
           <Stack.Screen name={ScreenNames.Profile.name} component={Profile} />
-          <Stack.Screen name={ScreenNames.Chats.name} component={Chats} />
           <Stack.Screen
             name={ScreenNames.ChatDetails.name}
             component={ChatDetails}

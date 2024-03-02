@@ -23,7 +23,7 @@ const Dashboard = () => {
         }}
       >
         <DashboardBalance />
-        <ReferralCard />
+        {/* <ReferralCard /> */}
       </View>
       <DashboardStats />
       <PendingWithdrawal />
